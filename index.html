@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GeoGuessly</title><style>
+:root{--bg:#0b1324;--card:#121d33;--text:#eef2f7;--muted:#9aa7bd;--accent:#33d9a6;--line:#22304d}
+@media (prefers-color-scheme: light){:root{--bg:#f6f8fb;--card:#fff;--text:#14213d;--muted:#5b6782;--accent:#0f9f77;--line:#e3e8f0}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Sans",sans-serif}
+main{max-width:760px;margin:0 auto;padding:32px 16px 64px}a{color:var(--accent)}
+header{display:flex;align-items:center;gap:12px;margin-bottom:8px}header img{width:48px;height:48px;border-radius:12px}
+h1{font-size:28px;margin:16px 0 4px}h2{font-size:18px;margin:28px 0 8px}.muted{color:var(--muted);font-size:14px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}nav button{background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
+nav button.on{border-color:var(--accent);color:var(--accent)}section[lang]{display:none}section[lang].on{display:block}
+ul{padding-left:20px}li{margin:6px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}
+footer{margin-top:40px;color:var(--muted);font-size:13px}
+</style></head>
+<body><main>
+<header><img src="geoguessly/icon.png" alt=""><strong>GeoGuessly</strong></header>
+<nav><button data-l="en">English</button><button data-l="tr">Türkçe</button><button data-l="es">Español</button><button data-l="pt-BR">Português</button><button data-l="de">Deutsch</button><button data-l="fr">Français</button><button data-l="it">Italiano</button><button data-l="ja">日本語</button></nav>
+<section lang="en"><h1>GeoGuessly</h1><p>A geography quiz for iPhone: find places on the map, guess cities from clues, name flags and play live with friends.</p><p><a href="geoguessly/support.html?lang=en">Support</a> · <a href="geoguessly/privacy.html?lang=en">Privacy Policy</a></p></section><section lang="tr"><h1>GeoGuessly</h1><p>iPhone için bir coğrafya oyunu: yerleri haritada bul, ipuçlarından şehri tahmin et, bayrakları bil ve arkadaşlarınla canlı oyna.</p><p><a href="geoguessly/support.html?lang=tr">Destek</a> · <a href="geoguessly/privacy.html?lang=tr">Gizlilik Politikası</a></p></section><section lang="es"><h1>GeoGuessly</h1><p>Un quiz de geografía para iPhone: encuentra lugares en el mapa, adivina ciudades con pistas, reconoce banderas y juega en vivo con amigos.</p><p><a href="geoguessly/support.html?lang=es">Soporte</a> · <a href="geoguessly/privacy.html?lang=es">Política de privacidad</a></p></section><section lang="pt-BR"><h1>GeoGuessly</h1><p>Um quiz de geografia para iPhone: encontre lugares no mapa, adivinhe cidades por dicas, reconheça bandeiras e jogue ao vivo com amigos.</p><p><a href="geoguessly/support.html?lang=pt-BR">Suporte</a> · <a href="geoguessly/privacy.html?lang=pt-BR">Política de Privacidade</a></p></section><section lang="de"><h1>GeoGuessly</h1><p>Ein Geografie-Quiz fürs iPhone: Finde Orte auf der Karte, errate Städte anhand von Hinweisen, erkenne Flaggen und spiele live mit Freunden.</p><p><a href="geoguessly/support.html?lang=de">Support</a> · <a href="geoguessly/privacy.html?lang=de">Datenschutzerklärung</a></p></section><section lang="fr"><h1>GeoGuessly</h1><p>Un quiz de géographie pour iPhone : trouve des lieux sur la carte, devine des villes grâce à des indices, reconnais les drapeaux et joue en direct avec tes amis.</p><p><a href="geoguessly/support.html?lang=fr">Assistance</a> · <a href="geoguessly/privacy.html?lang=fr">Politique de confidentialité</a></p></section><section lang="it"><h1>GeoGuessly</h1><p>Un quiz di geografia per iPhone: trova luoghi sulla mappa, indovina le città dagli indizi, riconosci le bandiere e gioca live con gli amici.</p><p><a href="geoguessly/support.html?lang=it">Assistenza</a> · <a href="geoguessly/privacy.html?lang=it">Informativa sulla privacy</a></p></section><section lang="ja"><h1>GeoGuessly</h1><p>iPhone向けの地理クイズゲーム。地図で場所を探し、ヒントから都市を当て、国旗を答え、友だちとライブ対戦しよう。</p><p><a href="geoguessly/support.html?lang=ja">サポート</a> · <a href="geoguessly/privacy.html?lang=ja">プライバシーポリシー</a></p></section>
+<footer>© 2026 Sadık Çoban · <a href="geoguessly/privacy.html">Privacy</a> · <a href="geoguessly/support.html">Support</a></footer>
+</main><script>
+const codes=[...document.querySelectorAll('section[lang]')].map(s=>s.lang);
+function show(c){document.querySelectorAll('section[lang]').forEach(s=>s.classList.toggle('on',s.lang===c));
+document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.l===c));document.documentElement.lang=c;}
+const q=new URLSearchParams(location.search).get('lang');
+const nav=(navigator.languages||[navigator.language]).map(l=>l.startsWith('pt')?'pt-BR':l.split('-')[0]);
+show([q,...nav].find(c=>codes.includes(c))||'en');
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>show(b.dataset.l));
+</script></body></html>
